@@ -74,7 +74,7 @@ public class ServerFrame extends JFrame {
     private final static String LAUNCHPAYLOADS = "$LP$";
     private final static String RETRIEVEFILES = "$RF$";
     private final static String ENDCOMMAND = "$ENDL$";
-    private final static char DELIMITER = '$';
+    private final static String DELIMITER = "$";
     
     private List<String> selectedValuesList;
     
@@ -306,7 +306,7 @@ public class ServerFrame extends JFrame {
             try
             {
                 String currentLine;
-                while(null != (currentLine = readProc.readLine()))
+                while(DELIMITER != (currentLine = readProc.readLine()))
                 {
                     //reformat the line
                     Updated.add(currentLine.replace(DELIMITER, ' '));
