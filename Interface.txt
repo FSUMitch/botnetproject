@@ -22,4 +22,4 @@ B: Server -> GUI
 When the server requests a list update the list should return in the format:
 BOT#;IP;OS;Architecture\n
 where each bot is written as a separate line.
-
+When the upload is complete the server shoul write a single line containing $.
