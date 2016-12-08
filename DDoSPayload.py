@@ -1,6 +1,3 @@
-from multiprocessing import Process, Queue, Manager, Pool
-import SocketServer
-import ssl
 global struct
 from socket import * #want lower level than built-in tcp servers
 #from struct import * #want for packing packets
@@ -8,7 +5,6 @@ import struct
 import sys
 import logging
 import math
-import timeit
 import array
 
 global checksum

