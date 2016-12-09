@@ -1,0 +1,38 @@
+
+
+This interface makes use of three delimiters
+FIELD_DELIMITER - $
+BOT_DELIMITER - :
+UPDATE_DELIMITER - ' ' (a single space)
+
+I: Receiving commands
+All commands from the GUI to the server will have
+the following format:
+	$COMMAND_CODE$BOT_FIELD$OPTIONAL
+	
+The defined COMMAND_CODEs:
+	GETBOTSTATUS = "$GS$";
+    UPLOADPAYLOADS = "$UP$";
+    LAUNCHPAYLOADS = "$LP$";
+	RETRIEVEFILES = "$RF$";
+	
+The BOT_FIELD has the following format:
+	BOTID:BOTID2:BOTID3:...:BOTIDn
+
+The OPTIONAL field is used to contain any extra information
+necessary to operatie the command. For UPLOADPAYLOADS and
+RETRIEVEFILES the optional field will contain the relevant
+file path / directory respectively.
+
+All commands will conclude with "...\r\n". This is an artifact
+of how Java is writing commands to the outputstream.
+
+II: Sending botlist updates
+When replying to GETBOTSTATUS the format is:
+	BOTID BOTIP BOTOS:BOTID2 BOTIP2 BOTOS2:
+The receiver is flexible and any additional information
+associated with a BOTID can be stored after BOTOS with 
+spaces between information fields.
+
+
+
