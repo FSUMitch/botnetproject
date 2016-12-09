@@ -3,7 +3,7 @@ import math
 
 def DistSieveTarget((n, tlow, thigh), B=None):
 	#sieve for use in threads of DistributedSieve
-	#n = number to sieve
+	#n == number to sieve
 	#B = list of primes used to sieve
 	#A = partition we want to sieve
 	#tindex = first number A represents
