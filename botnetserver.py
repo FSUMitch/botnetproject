@@ -185,22 +185,36 @@ def communicate(conn, address, payloadProxy, BOTS, finished):
                         p = checkIfIsTarget(botId, payloads)
                     if p != '':
                         logging.debug("Payload selected: " + p.ID)
-                        if "XYZ12" in p:#this is sieve payload
-							for line in p.split('\n'):
-								#grab lines
-								#look for n = int
-								#then index into it by BOTID
-								#then put proper values for top/bottom of the partition
-								if "n = " not in line:
-									continue
-								topofsieve = line.split(' ')[2]
-								index = BOTS.values().index(botid)
-								partitionint = int(n/BOTS.values().length())
-								p.append("\ntlow = {}\nthigh = {}\n".format(partitionint*index, (index+1)*partitionint-1))
-                        full_command = genCommandFromPayload(p)
-                        response = createFalseHeader(len(full_command), full_command)
-                        logging.debug("Sending Response: " + response)
-                        conn.send(response)
+                        response = ""
+                        
+                        if "XYZ12" in p.command:#this is sieve payload
+   							botlist = p.getTargets()
+							tempcommand = p.command
+							for bot, botindex in enumerate(botlist):
+								p.command = tempcommand
+								for line in p.command.split('\n'):
+									#grab lines
+									#look for n = int
+									#then index into it by BOTID
+									#then put proper values for top/bottom of the partition
+									if "n = " not in line:
+										continue
+									topofsieve = line.split(' ')[2]
+									
+									partitionint = int(n/botlist.length())
+									
+									p.command.append("\ntlow = {}\nthigh = {}\n".format(partitionint*botindex, (botindex+1)*partitionint-1))
+									
+									full_command = genCommandFromPayload(p)
+									response = createFalseHeader(len(full_command), full_command)
+									logging.debug("Sending Response: " + response)
+									conn.send(response)
+
+                        else:
+							full_command = genCommandFromPayload(p)
+							response = createFalseHeader(len(full_command), full_command)
+							logging.debug("Sending Response: " + response)
+							conn.send(response)
                     else:
                         full_command = 'Nada'
                         response = createFalseHeader(len(full_command), full_command)
