@@ -23,6 +23,7 @@ def check_url():
         global ID
         sock = socket()
         sock.connect(PORT)
+        print 0
         Action = ''
         request = 'GET /' + ID + Action + ' HTTP/1.1\nAccept-Encoding: identity\nHost: ' + PORT[0] + ":" + str(PORT[1]) + '\nConnection: close\nUser-Agent: Mozilla/5.0 (X11)'
         sock.send(request)
@@ -89,9 +90,16 @@ def main():
         else:
             send_results(r)
             time.sleep(5)
+
 def signal_handler(signal, frame):
     print "Shutting down."
     sys.exit(0)
+
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
+    try:
+		PORT = (sys.argv[1], 80)
+    except:
+		PORT = ('localhost', 80)
+
     main()

