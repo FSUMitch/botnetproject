@@ -15,8 +15,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketAddress;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
@@ -35,7 +39,7 @@ public class BotnetGUI extends javax.swing.JFrame {
     
     private List<String> selectedValuesList;
     private Timer timer;
-    private final int DELAY = 30 * 1000;    //miliseconds
+    private final int DELAY = 10 * 1000;    //miliseconds
     private final int PORT = 1776;
     private Lock socketLock;                //guards access to socket
     private ProcessBuilder pb;
@@ -52,6 +56,7 @@ public class BotnetGUI extends javax.swing.JFrame {
     private final static String RETRIEVEFILES = "$RF$";
     private final static String FIELD_DELIMITER = "$";
     private final static char BOT_FIELD_DELIMITER = ':';
+    private final int TIMEOUT = 15 * 1000;
     private DefaultListModel listModel;
 
     /**
@@ -64,7 +69,7 @@ public class BotnetGUI extends javax.swing.JFrame {
         buildProcess();
         serverAccept();
         updateList();
-        //startTimer();
+        startTimer();
     }
 
     /**
@@ -357,7 +362,15 @@ public class BotnetGUI extends javax.swing.JFrame {
         socketLock = new ReentrantLock();
         try
         {
-            serverSocket = new ServerSocket(PORT);
+            //maybe work better? Should be local connection only
+            //https://stackoverflow.com/questions/1542424/how-to-determine-an-incoming-connection-is-from-local-machine/1544062#1544062
+            SocketAddress socketAddress = new InetSocketAddress( InetAddress.getByName( null ), PORT);
+            serverSocket = new ServerSocket();
+            serverSocket.bind(socketAddress);
+            
+            //original
+            //serverSocket = new ServerSocket(PORT);
+            
         }
         catch (IOException e) {
             System.out.println("Exception caught when trying to listen on port "
@@ -371,17 +384,24 @@ public class BotnetGUI extends javax.swing.JFrame {
         try
         {
             System.out.println("Wait to accept()");
+            serverSocket.setSoTimeout(TIMEOUT);
             clientSocket = serverSocket.accept();
             System.out.println("accepted");
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         }
-        catch (IOException e) {
-            System.out.println("Exception caught when trying to listen on port "
-                + PORT + " or listening for a connection");
-            System.out.println(e.getMessage());
+        catch (SocketTimeoutException ste)
+        {
+            System.err.println(ste.getMessage());
+            programExit();
         }
-        /*
+        catch (IOException e) {
+            System.err.println("Exception caught when trying to listen on port "
+                + PORT + " or listening for a connection");
+            System.err.println(e.getMessage());
+        }
+        
+        
         try {
             //test connection
             System.out.println("Attempting to receive from server");
@@ -389,7 +409,7 @@ public class BotnetGUI extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(BotnetGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //test send and respond
+        /*//test send and respond
         System.out.println("Attempting to send to server");
         out.println("Please work");
         try{
@@ -454,12 +474,15 @@ public class BotnetGUI extends javax.swing.JFrame {
                 need escape characters because .split(REGEX)
                 */
                 String[] Bots = currentLine.split("\\" + FIELD_DELIMITER);
+                System.out.println("Bots size: " + Bots.length);
                 listModel = new DefaultListModel<String>();
+                listModel.clear();
                 for(String s: Bots)
                 {
                     listModel.addElement(s);
                 }
                 botList.setModel(listModel);
+                Bots = null;
             }
             catch(Exception e)
             {
