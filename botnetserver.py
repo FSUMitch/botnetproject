@@ -168,6 +168,8 @@ def communicate(conn, address, payloadProxy, BOTS, finished):
                                 p.addResult(botId, decoded)
                                 if len(p.getTargets()) == len(p.getResults()):
                                     finished.append(p)
+                                    with open(p.ID+".res", 'w') as f:
+                                        f.write(p.getResults)
                                     try:
                                         payloads.remove(p)
                                     except Exception, e:
