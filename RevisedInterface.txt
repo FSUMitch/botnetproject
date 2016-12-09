@@ -34,5 +34,13 @@ The receiver is flexible and any additional information
 associated with a BOTID can be stored after BOTOS with 
 spaces between information fields.
 
+All messages passed to the server must terminate with a 
+newline character '\n'. Without a newline, the server will
+indefinitely block trying to readLine().
+
+III: Port configuration
+Network address - local host
+Port - 1776
+
 
 
