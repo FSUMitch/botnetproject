@@ -48,8 +48,8 @@ public class BotnetGUI extends javax.swing.JFrame {
     private PrintWriter out;
     private BufferedReader in;
     private Socket clientSocket;
-    private final static String COMMAND = "C:\\Python27\\python";  //absolute path to python
-    private final static String PYTHONSCRIPT = "C:\\Users\\Douglas\\Desktop\\pysocket.py";
+    private static String COMMAND;// = "C:\\Python27\\python";  //absolute path to python
+    private static String PYTHONSCRIPT;// = "C:\\Users\\Douglas\\Desktop\\pysocket.py";
     private final static String GETBOTSTATUS = "$GS$";
     private final static String UPLOADPAYLOADS = "$UP$";
     private final static String LAUNCHPAYLOADS = "$LP$";
@@ -540,6 +540,14 @@ public class BotnetGUI extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        if(2 != args.length)
+        {
+            System.out.println("<path to python, path to server script");
+        }
+        COMMAND = args[0];
+        PYTHONSCRIPT = args[1];
+        
+        
         System.out.println("Running project");
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -563,7 +571,7 @@ public class BotnetGUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(BotnetGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
