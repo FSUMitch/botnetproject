@@ -1,2 +1,2 @@
 #botnet proj
-I was here
+A school project meant to mimic a botnet.
